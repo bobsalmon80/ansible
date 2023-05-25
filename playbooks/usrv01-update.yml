@@ -1,0 +1,20 @@
+- name: Download and install update
+  hosts: usrv01
+  become: true
+#  become_user: root
+  vars:
+   ansible_ssh_extra_args: "-R 3128" # При создание соединения запускает  socks5h-прокси на удаленном сервере в данном случае для доступа в интернет через SSH тунель 
+
+#   ansible_become_pass: 0000000000
+#  environment:
+#   http_proxy: "socks5h://127.0.0.1:3128" # Настраиваем параметры http-прокси
+#   https_proxy: "socks5h://127.0.0.1:3128"
+#   ftp_proxy: "socks5h://127.0.0.1:3128"
+  tasks:
+  - name: packet update
+    apt:
+     update_cache: true
+    environment:
+     http_proxy: "socks5h://127.0.0.1:3128"  # Настраиваем параметры http-прокси
+#     https_proxy: "socks5h://127.0.0.1:3128"
+#     ftp_proxy: "socks5h://127.0.0.1:3128"
