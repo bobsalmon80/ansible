@@ -1,0 +1,4 @@
+# .gitignore file
+/home/smb/ansible/playbooks/smbsecrets.yml
+/home/smb/ansible/playbooks/ps.txt
+
