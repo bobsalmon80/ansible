@@ -1,4 +1,6 @@
 # .gitignore file
-/home/smb/ansible/playbooks/smbsecrets.yml
-/home/smb/ansible/playbooks/ps.txt
+/playbooks/smbsecrets.yml
+/playbooks/ps.txt
+/ansible-navigator.log
+/.vscode/
 
