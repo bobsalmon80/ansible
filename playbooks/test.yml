@@ -1,3 +1,9 @@
 ---
-- name: "Test playbook"
-- tasks:
+- name: Print out operating system
+  hosts: all
+  gather_facts: true
+
+  tasks:
+    - ansible.builtin.debug:
+      # var=ansible_distribution
+      var: ansible_distribution
