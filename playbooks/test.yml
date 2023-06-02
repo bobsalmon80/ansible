@@ -4,6 +4,6 @@
   gather_facts: true
 
   tasks:
-    - ansible.builtin.debug:
-      # var=ansible_distribution
-      var: ansible_distribution
+    - name: Debug name
+      ansible.builtin.debug:
+        var: ansible_distribution # var=ansible_distribution
