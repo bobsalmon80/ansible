@@ -1,5 +1,5 @@
 ---
-- name: Print out operating system
+- name: Test play
   hosts: all
   gather_facts: true
 
@@ -7,3 +7,11 @@
     - name: Debug name
       ansible.builtin.debug:
         var: ansible_distribution # var=ansible_distribution
+    - name: Debug custom_vars
+      ansible.builtin.debug:
+        msg: >
+          '{{ custom_var }}',
+          '{{ custom_var2 }}',
+          '{{ custom_var_l }}',
+          '{{ testsrv_tftp_srv.name }}',
+          '{{ testsrv_tftp_srv.ip }}'
