@@ -4,4 +4,5 @@
 /playbooks/smbs.yml
 /ansible-navigator.log
 /.vscode/
+/playbooks/0001_temp
 
