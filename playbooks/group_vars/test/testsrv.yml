@@ -1,0 +1,24 @@
+---
+custom_var2: test
+custom_var_l: cvl_test
+# [DHCP_Server]
+testsrv_dhcp_srv:
+  name: srv01
+  ip: 192.168.5.1
+# [DNS_Server]
+testsrv_dns_srv:
+  name:
+    - srv01
+    - srv02
+  ip:
+    - 192.168.5.1
+    - 192.168.5.2
+# [TFTP_Server]
+testsrv_tftp_srv:
+  name:
+    - srv01
+    - srv02
+  ip:
+    - 192.168.5.1
+    - 192.168.5.2
+

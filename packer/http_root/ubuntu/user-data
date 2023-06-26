@@ -6,10 +6,17 @@ autoinstall:
     toggle: null
     variant: ''
   locale: en_US.UTF-8
-  identity:
+  user-data:
+    package_upgrade: false
     hostname: ubuntu-srv-p
-    username: smb
-    password: $1$C95Opy/n$9gkjajUUCB7bMEMAqbeuV/
+    users:
+      - name: smb
+        groups: [adm, sudo]
+        lock-passwd: false
+        sudo: ALL=(ALL) NOPASSWD:ALL
+        shell: /bin/bash
+        passwd: $1$C95Opy/n$9gkjajUUCB7bMEMAqbeuV/
+        ssh_authorized_keys: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFtLyO+PKnHn8WOAzLlRGmPcG0JbwsRPTaLfEvt4Jop9 smb@dmz-151
   ssh:
     allow-pw: true
     authorized-keys: []

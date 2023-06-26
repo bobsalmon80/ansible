@@ -15,3 +15,5 @@
           '{{ custom_var_l }}',
           '{{ testsrv_tftp_srv.name }}',
           '{{ testsrv_tftp_srv.ip }}'
+    #- name: Proxmox imaje deploy
+    #  community.general.proxmox:  

@@ -1,0 +1,7 @@
+ssh -R 3128 10.55.0.50
+
+sudo http_proxy=socks5h://127.0.0.1:3128 apt-get update
+sudo http_proxy=socks5h://127.0.0.1:3128 apt-get update
+sudo http_proxy=socks5h://127.0.0.1:3128 DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -y
+sudo http_proxy=socks5h://127.0.0.1:3128 DEBIAN_FRONTEND=noninteractive apt-get qemu-guest-agent -y
+sudo systemctl start qemu-guest-agent

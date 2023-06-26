@@ -5,4 +5,10 @@
 /ansible-navigator.log
 /.vscode/
 /playbooks/0001_temp
-
+/.husky/
+/playbooks/node_modules/
+/commmtlint.config.js
+/package-lock.json
+/package.json
+/playbooks/package-lock.json
+/playbooks/package.json

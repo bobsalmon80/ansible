@@ -1,0 +1,6 @@
+manadge_node:
+      hosts:
+        usrv01:
+          ansible_host: 10.55.0.83
+          ansible_user: smb
+          
