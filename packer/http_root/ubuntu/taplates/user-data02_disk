@@ -1,0 +1,26 @@
+The previous configuration will create three partitions on the largest drive.
+
+10% for the boot partition.
+20G for the root partition.
+The rest for the data partition.
+
+
+#cloud-config
+autoinstall:
+  ...
+  storage:
+    config:
+      - type: disk
+        id: root-disk
+        size: largest
+      - type: partition
+        id: boot-partition
+        device: root-disk
+        size: 10%
+      - type: partition
+        id: root-partition
+        size: 20G
+      - type: partition
+        id: data-partition
+        device: root-disk
+        size: -1

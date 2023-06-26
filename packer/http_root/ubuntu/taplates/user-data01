@@ -1,0 +1,31 @@
+#cloud-config
+autoinstall:
+  version: 1
+  locale: en_US
+  keyboard:
+    layout: de
+  ssh:
+    install-server: true
+    allow-pw: true
+    disable_root: false
+    ssh_quiet_keygen: true
+    allow_public_ssh_keys: true
+  packages:
+    - qemu-guest-agent
+    - sudo
+  storage:
+    layout:
+      name: direct
+    swap:
+      size: 0
+  user-data:
+    package_upgrade: false
+    timezone: America/Phoenix
+    users:
+      - name: smb
+        groups: [adm, sudo]
+        lock-passwd: false
+        sudo: ALL=(ALL) NOPASSWD:ALL
+        shell: /bin/bash
+        passwd: $1$C95Opy/n$9gkjajUUCB7bMEMAqbeuV/
+        ssh_authorized_keys: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFtLyO+PKnHn8WOAzLlRGmPcG0JbwsRPTaLfEvt4Jop9 smb@dmz-151

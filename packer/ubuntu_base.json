@@ -1,0 +1,52 @@
+{
+    "variables": {
+      "proxmox_vm_id": "305",
+      "proxmox_template_name": "ubuntu-22.04",
+      "ubuntu_iso_file": "ubuntu-22.04.2-live-server-amd64.iso"
+    },
+    "builders": [{
+      "type": "proxmox",
+      "proxmox_url": "https://192.168.101.2:8006/api2/json",
+      "username": "root@pam",
+      "password": "1Qazxsw2",
+      "node": "node5",
+      "vm_id": "{{ user `proxmox_vm_id` }}",
+      "network_adapters": [{
+        "bridge": "vmbr0"
+      }],
+      "scsi_controller": "virtio-scsi-pci",
+      "disks": [{
+        "disk_size": "20G",
+        "format": "raw",
+        "storage_pool": "local-lvm",
+        "storage_pool_type": "lvm",
+        "type": "virtio"
+      }],
+      "iso_file": "local:iso/{{ user `ubuntu_iso_file` }}",
+      "cores": 2,
+      "iso_storage_pool": "local",
+      "unmount_iso": true,
+      "memory": 1024,
+      "template_name": "{{ user `proxmox_template_name` }}",
+      "http_directory": "/home/smb/ansible/packer/http_root",
+      "boot": "c",
+      "boot_wait": "5s",
+      "boot_command": [
+        "<esc><wait>",
+        "e<wait>",
+        "<down><down><down><end>",
+        "<bs><bs><bs><bs><wait>",
+        "autoinstall ds=nocloud-net\\;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ ---<wait>",
+        "<f10><wait>"
+      ],
+      "ssh_username": "smb",
+      "ssh_password": "fDj80mDn12",
+      "ssh_timeout": "20m"
+    }],
+    "provisioners": [{
+      "type": "shell",
+      "inline": [
+        "while [ ! -f /var/lib/cloud/instance/boot-finished ]; do echo 'Waiting for cloud-init...'; sleep 1; done"
+      ]
+    }]
+  }
