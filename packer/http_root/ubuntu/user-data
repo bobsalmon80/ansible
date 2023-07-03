@@ -19,7 +19,7 @@ autoinstall:
         ssh_authorized_keys: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFtLyO+PKnHn8WOAzLlRGmPcG0JbwsRPTaLfEvt4Jop9 smb@dmz-151
   ssh:
     allow-pw: true
-    authorized-keys: []
+#    authorized-keys: []
     install-server: true
   packages:
     - sudo

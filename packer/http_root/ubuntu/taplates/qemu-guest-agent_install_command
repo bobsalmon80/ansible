@@ -1,7 +1,14 @@
 ssh -R 3128 10.55.0.50
 
 sudo http_proxy=socks5h://127.0.0.1:3128 apt-get update
-sudo http_proxy=socks5h://127.0.0.1:3128 apt-get update
 sudo http_proxy=socks5h://127.0.0.1:3128 DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -y
 sudo http_proxy=socks5h://127.0.0.1:3128 DEBIAN_FRONTEND=noninteractive apt install qemu-guest-agent -y
 sudo systemctl start qemu-guest-agent
+
+Портфорвард с помощью QEMU
+Вы можете обойти это с помощью аргументов qemu:
+"-netdev",
+"user,id=mynet0,",
+"hostfwd=tcp:127.0.0.1:3128-127.0.0.1:3128,hostfwd=tcp::{{ .SSHHostPort }}-:22",
+""
+],
