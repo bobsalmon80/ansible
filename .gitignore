@@ -13,3 +13,4 @@
 /playbooks/package-lock.json
 /playbooks/package.json
 /packer/vars.auto.pkr.hcl
+/packer/plagins/
